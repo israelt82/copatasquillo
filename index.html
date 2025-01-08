@@ -3,69 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuenta Regresiva</title>
+    <meta name="description" content="Copa Nacional Tasquillo - Torneo de Basquetbol del 08 al 11 de mayo 2025. ¡Realiza tu preinscripción ahora!">
+    <meta name="theme-color" content="#000000">
+    <title>Copa Nacional Tasquillo 2025 - Cuenta Regresiva</title>
     <style>
+        :root {
+            --primary-color: #007BFF;
+            --accent-color: #ffd52b;
+            --text-light: #ffffff;
+            --spacing-base: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.5;
             text-align: center;
             background: #000;
-            color: #ffd52b;
-            padding: 20px;
+            color: var(--accent-color);
+            padding: var(--spacing-base);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        h1 {
-            font-size: 2.5em;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-base);
         }
-        .countdown {
+
+        .logo {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-bottom: var(--spacing-base);
+    }
+
+
+        .event-date {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-title {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-base);
+        }
+
+        .countdown-days {
+            color: var(--text-light);
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-base);
+        }
+
+        .time-box {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .time-box:hover {
+            transform: translateY(-2px);
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin: var(--spacing-base) 0;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: var(--spacing-base) 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .social-links {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 1.5rem;
+            margin-top: var(--spacing-base);
         }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        @media (max-width: 768px) {
+        body {
+            padding: 1rem;
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        .countdown-title {
+            font-size: 1.5rem;
+        }
+
+        .countdown-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         .time-box {
-            background: #007BFF;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1.8em;
-            width: 100px;
-            text-align: center;
+            font-size: 1.2rem;
+            padding: 0.8rem;
         }
+
+        .cta-text {
+            font-size: 1.1rem;
+        }
+
+        .buttons-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links {
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+        }
+    }
     </style>
 </head>
 <body>
-    <img src="https://github.com/israelt82/copatasquillo/blob/main/logo-patro.png?raw=true" alt="Logotipo" style="max-width: 350px;">
-    <h1 style="color: #ffd52b;margin: 0!important;">Inicia la cuenta regresiva, Faltan <span id="days" style="color: white">00</span></h1>
-    <div class="countdown">
-        <div class="time-box" id="hours">00</div>
-        <div class="time-box" id="minutes">00</div>
-        <div class="time-box" id="seconds">00</div>
+    <div class="container">
+        <img src="https://github.com/israelt82/copatasquillo/blob/main/logo-patro.png?raw=true" 
+             alt="Logo Copa Nacional Tasquillo" 
+             class="logo"
+             loading="lazy">
+        
+        <h1 class="event-date">📅 Del 8 al 11 de mayo de 2025</h1>
+        
+        <h2 class="countdown-title">
+            Inicia la cuenta regresiva, Faltan 
+            <span class="countdown-days" id="days">00</span>
+        </h2>
+
+        <div class="countdown-grid" role="timer" aria-label="Cuenta regresiva para el evento">
+            <div class="time-box" id="hours">00 hrs.</div>
+            <div class="time-box" id="minutes">00 min.</div>
+            <div class="time-box" id="seconds">00 s.</div>
+        </div>
+
+        <p class="cta-text">¡No te quedes fuera! 🏀 Realiza tu preinscripción y asegura tu lugar.</p>
+
+        <h3 style="color: var(--text-light);">Descarga la convocatoria y preinscríbete</h3>
+        
+        <div class="buttons-container">
+            <a href="https://drive.google.com/file/d/1VMYN1fr3AFkPr3wBC01bvikI32dJEIvI/view?usp=drive_link" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn">
+                📄 Convocatoria PDF
+            </a>
+            <a href="https://forms.gle/c6MEPWmX6zBvKbGe6" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn">
+                📝 Realiza tu preinscripción
+            </a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://wa.me/+5217752420347" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Contactar por WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+                     alt="" 
+                     class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/copanacionaltasquillo" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Seguir en Instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+                     alt="" 
+                     class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/CopaNacionalTasquilloBasquetbol" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Seguir en Facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+                     alt="" 
+                     class="social-icon">
+            </a>
+        </div>
     </div>
-    <p style="color: #ffd52b; font-size: 1.2em; margin-top: 20px;">¡No te quedes fuera! Las inscripciones ya están abiertas.</p>
+
     <script>
-        const eventDate = new Date("2025-05-08T08:00:00").getTime(); // Cambia la fecha y hora aquí
+        const eventDate = new Date("2025-05-08T08:00:00-06:00").getTime(); // Ajustado a zona horaria de México
+
+        function padNumber(number) {
+            return number.toString().padStart(2, "0");
+        }
 
         function updateCountdown() {
             const now = new Date().getTime();
             const timeLeft = eventDate - now;
+
+            if (timeLeft < 0) {
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h1>¡El evento ya comenzó!</h1>
+                        <p>Síguenos en nuestras redes sociales para mantenerte informado.</p>
+                        <div class="social-links">
+                            <!-- Mantener los enlaces de redes sociales aquí -->
+                        </div>
+                    </div>`;
+                return;
+            }
 
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = days.toString().padStart(2, "0") + " Días ";
-            document.getElementById("hours").textContent = hours.toString().padStart(2, "0") + " hrs. ";
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0") + " min. ";
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0") + " s. ";
-
-            if (timeLeft < 0) {
-                clearInterval(timer);
-                document.body.innerHTML = "<h1>¡El evento ya comenzó, siguenos en las redes sociales.!</h1>";
-            }
+            document.getElementById("days").textContent = `${padNumber(days)} Días`;
+            document.getElementById("hours").textContent = `${padNumber(hours)} hrs.`;
+            document.getElementById("minutes").textContent = `${padNumber(minutes)} min.`;
+            document.getElementById("seconds").textContent = `${padNumber(seconds)} s.`;
         }
 
-        const timer = setInterval(updateCountdown, 1000);
+        // Iniciar la cuenta regresiva
         updateCountdown();
+        const timer = setInterval(updateCountdown, 1000);
+
+        // Limpieza cuando el componente se desmonte
+        window.addEventListener('unload', () => clearInterval(timer));
     </script>
 </body>
 </html>
