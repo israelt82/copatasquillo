@@ -191,25 +191,23 @@
              alt="Logo Copa Nacional Tasquillo" 
              class="logo"
              loading="lazy">
-        <h2 class="countdown-title">
-            Inicia la cuenta regresiva, faltan 
-            <span class="countdown-days" id="days">00</span>
-        </h2>
-
-        <div class="countdown-grid" role="timer" aria-label="Cuenta regresiva para el evento">
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 700; color: #ffd52b;">
-                <span id="hours"></span>
-                <span style="margin: 0 0.1rem;">:</span>
-                <span id="minutes"></span>
-                <span style="margin: 0 0.1rem;">:</span>
-                <span id="seconds"></span>
-            </p>
+        <div class="container_two">
+            <h2 class="countdown-title">
+                Inicia la cuenta regresiva, faltan 
+                <span class="countdown-days" id="days">00</span>
+            </h2>
+            <div class="countdown-grid" role="timer" aria-label="Cuenta regresiva para el evento">
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 700; color: #ffd52b;">
+                    <span id="hours"></span>
+                    <span style="margin: 0 0.1rem;">:</span>
+                    <span id="minutes"></span>
+                    <span style="margin: 0 0.1rem;">:</span>
+                    <span id="seconds"></span>
+                </p>
+            </div>
         </div>
-
         <p class="cta-text">¡No te quedes fuera! 🏀 Realiza tu preinscripción y asegura tu lugar.</p>
-
         <h3 style="color: var(--text-light);">Descarga la convocatoria y preinscríbete</h3>
-        
         <div class="buttons-container">
             <a href="https://drive.google.com/file/d/1VMYN1fr3AFkPr3wBC01bvikI32dJEIvI/view?usp=drive_link" 
                target="_blank" 
@@ -224,7 +222,6 @@
                 📝 Realiza tu preinscripción
             </a>
         </div>
-
         <div class="social-links">
             <a href="https://wa.me/+5217752420347" 
                target="_blank" 
@@ -265,14 +262,6 @@
             const timeLeft = eventDate - now;
 
             if (timeLeft < 0) {
-                document.body.innerHTML = `
-                    <div class="container">
-                        <h1>¡El evento ya comenzó!</h1>
-                        <p>Síguenos en nuestras redes sociales para mantenerte informado.</p>
-                        <div class="social-links">
-                            <!-- Mantener los enlaces de redes sociales aquí -->
-                        </div>
-                    </div>`;
                 return;
             }
 
