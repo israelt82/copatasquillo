@@ -73,7 +73,7 @@
         .basketball-border::before {
             content: '';
             position: absolute;
-            top: 47%;
+            top: 32%;
             left: -20px;
             right: -20px;
             height: 3px;
@@ -245,7 +245,7 @@
             }
 
             .basketball-border::before {
-            top: 50%;
+            top: 35%;
             }
         }
 
@@ -283,6 +283,54 @@
             width: 2px;
             background: var(--text-light);
         }
+        /* Estilos actualizados con mejor centrado */
+
+        .gallery-section {
+            margin: 3rem auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1000px; /* Limita el ancho máximo para mejor control */
+            text-align: center;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            flex: 0 1 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .gallery-item {
+                flex: 0 1 100%;
+                max-width: 300px; /* Controla el ancho máximo en móvil */
+            }
+        }
+
     </style>
 </head>
 <!-- Google Tag Manager -->
@@ -290,7 +338,8 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PMSLHXSP');</script>
+    })(window,document,'script','dataLayer','GTM-PMSLHXSP');
+</script>
 <!-- End Google Tag Manager -->
 
 <!-- Google tag (gtag.js) -->
@@ -357,9 +406,22 @@
                     target="_blank" 
                     rel="noopener noreferrer" 
                     class="btn">
-                     💬 Únete al Canal de WhatsApp
-                 </a>
+                        💬 Únete al Canal de WhatsApp
+                    </a>
                 </div>
+            </div>
+            <h3 class="countdown-title">Fototeca</h3>
+            <div class="gallery-section">
+                
+                <a href="https://bit.ly/4dTXV2P" target="_blank" class="gallery-item">
+                    <img src="https://github.com/israelt82/copatasquillo/blob/main/logo%203era.png?raw=true" alt="3era Edición" />
+                </a>
+                <a href="https://bit.ly/3Sb2Ovw" target="_blank" class="gallery-item">
+                    <img src="https://github.com/israelt82/copatasquillo/blob/main/logo%20segunda.png?raw=true" alt="2da. Edición" />
+                </a>
+                <a href="https://bit.ly/48MS387" target="_blank" class="gallery-item">
+                    <img src="https://github.com/israelt82/copatasquillo/blob/main/logo%201era%20.png?raw=true" alt="1era. Edición." />
+                </a>
             </div>
 
             <div class="social-links">
@@ -388,6 +450,7 @@
                          class="social-icon">
                 </a>
             </div>
+
         </div>
     </div>
 
